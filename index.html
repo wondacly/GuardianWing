@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智翼守护 GuardianWing · Smart Walker × AI Care Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth-dash.css">
+</head>
+<body>
+    <!-- ========== 导航栏 ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-brand">
+                <img src="logo.png" alt="GuardianWing" class="nav-logo">
+                <span class="nav-title">GuardianWing</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#problem" data-i18n="nav.problem">痛点</a></li>
+                <li><a href="#solution" data-i18n="nav.solution">方案</a></li>
+                <li><a href="#flywheel" data-i18n="nav.flywheel">飞轮</a></li>
+                <li><a href="#walker" data-i18n="nav.walker">助行器</a></li>
+                <li><a href="#phone" data-i18n="nav.phone">电话助手</a></li>
+                <li><a href="#demo" data-i18n="nav.demo">互动演示</a></li>
+                <li><a href="#sensors" data-i18n="nav.sensors">传感映射</a></li>
+                <li><a href="#roadmap" data-i18n="nav.roadmap">路线图</a></li>
+            </ul>
+            <div class="nav-user" id="navUser">
+                <button class="btn-login" id="btnLogin" data-i18n="nav.login">登录体验</button>
+                <div class="user-menu" id="userMenu" style="display:none;">
+                    <button class="user-avatar" id="userAvatarBtn">
+                        <span class="ua-initials" id="userInitials">U</span>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="ud-header">
+                            <span class="ud-name" id="udName">User</span>
+                            <span class="ud-role" id="udRole" data-i18n="user.roleElder">长者</span>
+                        </div>
+                        <ul class="ud-list">
+                            <li><a href="dashboard.html" id="udDashboard" data-i18n="user.dashboard">体验中心</a></li>
+                            <li><a href="#demo" data-i18n="nav.demo">互动演示</a></li>
+                            <li class="ud-divider"></li>
+                            <li><a href="#" id="udLogout" data-i18n="user.logout">退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <button class="lang-toggle" id="langToggle">
+                <span class="lang-current" id="langCurrent">EN</span>
+            </button>
+            <button class="nav-menu-btn" id="navMenuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== Hero ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <div class="hero-badge" data-i18n="hero.badge">INTEGRATED BUSINESS PLAN · 2026</div>
+            <h1 class="hero-title">
+                <span class="title-zh" data-i18n="hero.titleZh">智翼守护</span>
+                <span class="title-en" data-i18n="hero.titleEn">GuardianWing</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Smart Walker × AI Care Platform</p>
+            <p class="hero-tagline" data-i18n="hero.tagline">Support on the move. Watchful care at home.</p>
+            <p class="hero-desc" data-i18n="hero.desc">一个跌倒预测引擎，两个入口，一个闭环 —— 出门有人扶，在家有人问，风险先知道。</p>
+            <div class="hero-actions">
+                <a href="#solution" class="btn btn-primary" data-i18n="hero.btnSolution">探索方案</a>
+                <a href="#sensors" class="btn btn-outline" data-i18n="hero.btnSensors">查看传感映射</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span class="scroll-mouse"><span class="scroll-dot"></span></span>
+        </div>
+    </section>
+
+    <!-- ========== 痛点 ========== -->
+    <section class="section" id="problem">
+        <div class="section-header">
+            <span class="section-num">01</span>
+            <h2 class="section-title" data-i18n="problem.title">痛点 · 两个割裂的场景</h2>
+            <p class="section-desc" data-i18n="problem.desc">移动中的数据留在街头，居家中的服务留在家里 —— 没有人把两者连成闭环。</p>
+        </div>
+        <div class="problem-cards">
+            <div class="problem-card">
+                <div class="problem-icon">🚶</div>
+                <h3 data-i18n="problem.sceneA.title">场景 A · 出门</h3>
+                <p data-i18n="problem.sceneA.desc">怕跌倒、走不动、走累了没处坐。传统助行器无动力、无智能；电动轮椅笨重 —— 一坐就再也站不起来。</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🏠</div>
+                <h3 data-i18n="problem.sceneB.title">场景 B · 在家</h3>
+                <p data-i18n="problem.sceneB.desc">忘服药、不会用智能手机、跌倒无人知。子女远程无法掌握状况，意外发现总是太迟。</p>
+            </div>
+        </div>
+        <div class="stats-row">
+            <div class="stat-item">
+                <span class="stat-num" data-target="310" data-suffix="M">0</span>
+                <span class="stat-label" data-i18n="problem.stat1">中国 60+ 人口（百万）</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" data-target="44" data-suffix="M">0</span>
+                <span class="stat-label" data-i18n="problem.stat2">失能/半失能老人（百万）</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" data-target="33" data-suffix="%" data-divide="100">0</span>
+                <span class="stat-label" data-i18n="problem.stat3">65+ 每年至少跌倒一次</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" data-target="2.3" data-suffix="B" data-decimal="1">0</span>
+                <span class="stat-label" data-i18n="problem.stat4">英国 NHS 年跌倒成本（£B）</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 方案 ========== -->
+    <section class="section section-alt" id="solution">
+        <div class="section-header">
+            <span class="section-num">02</span>
+            <h2 class="section-title" data-i18n="solution.title">方案 · 一个引擎，两个入口，三端联动</h2>
+            <p class="section-desc" data-i18n="solution.desc">云端健康引擎融合步态与体征数据，驱动移动入口与居家入口协同运转。</p>
+        </div>
+        <div class="solution-diagram">
+            <div class="solution-cloud">
+                <div class="cloud-card glass">
+                    <div class="cloud-icon">☁️</div>
+                    <h3 data-i18n="solution.cloud.title">云端健康引擎</h3>
+                    <p data-i18n="solution.cloud.desc">步态 + 体征数据库 → 跌倒风险预测模型 → 干预策略</p>
+                </div>
+            </div>
+            <div class="solution-connector"></div>
+            <div class="solution-touchpoints">
+                <div class="touchpoint-card glass">
+                    <div class="tp-icon">🦼</div>
+                    <h3 data-i18n="solution.walker.title">移动入口 · 智能助行器</h3>
+                    <ul>
+                        <li data-i18n="solution.walker.f1">压力感知助力前进</li>
+                        <li data-i18n="solution.walker.f2">行走/落座一键切换（专利结构）</li>
+                        <li data-i18n="solution.walker.f3">IMU 步态采集（预测模型数据源）</li>
+                        <li data-i18n="solution.walker.f4">心率监测 + 跌倒/翻倒即时报警</li>
+                        <li data-i18n="solution.walker.f5">北斗定位 + 一键呼叫</li>
+                    </ul>
+                </div>
+                <div class="touchpoint-card glass">
+                    <div class="tp-icon">📞</div>
+                    <h3 data-i18n="solution.phone.title">居家入口 · AI 电话助手</h3>
+                    <ul>
+                        <li data-i18n="solution.phone.f1">每日主动外呼：服药确认、健康问答</li>
+                        <li data-i18n="solution.phone.f2">零设备门槛 —— 任意电话线即可</li>
+                        <li data-i18n="solution.phone.f3">无应答自动升级：家属 → 紧急联系人</li>
+                        <li data-i18n="solution.phone.f4">结构化健康日志回流云端</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="solution-connector"></div>
+            <div class="solution-app">
+                <div class="app-card glass">
+                    <div class="app-icon">📱</div>
+                    <h3 data-i18n="solution.app.title">家属端 App</h3>
+                    <p data-i18n="solution.app.desc">健康日报 · 异常警报 · 定位 · 远程语音</p>
+                </div>
+            </div>
+        </div>
+        <div class="solution-loop">
+            <p data-i18n="solution.loop">核心飞轮：助行器感知 → 电话干预 → 引擎学习。当模型发现步态退化时，AI 电话主动介入 —— 提醒、约诊、通知家属 —— 远在跌倒发生之前。</p>
+        </div>
+    </section>
+
+    <!-- ========== 数据飞轮 ========== -->
+    <section class="section" id="flywheel">
+        <div class="section-header">
+            <span class="section-num">03</span>
+            <h2 class="section-title" data-i18n="flywheel.title">数据飞轮 · 为什么它会自我增强</h2>
+            <p class="section-desc" data-i18n="flywheel.desc">数据越多 → 预测越准 → 服务越值 → 用户越多 → 数据更多。</p>
+        </div>
+        <div class="flywheel-steps">
+            <div class="flywheel-step">
+                <div class="fw-num">1</div>
+                <h3 data-i18n="flywheel.s1.title">感知 Sense</h3>
+                <p data-i18n="flywheel.s1.desc">助行器每次出行采集步态、平衡、心率 —— 真实世界、每日、纵向数据。</p>
+            </div>
+            <div class="fw-arrow">→</div>
+            <div class="flywheel-step">
+                <div class="fw-num">2</div>
+                <h3 data-i18n="flywheel.s2.title">预测 Predict</h3>
+                <p data-i18n="flywheel.s2.desc">引擎提前数周评估跌倒风险，而非跌倒后数秒才响应。</p>
+            </div>
+            <div class="fw-arrow">→</div>
+            <div class="flywheel-step">
+                <div class="fw-num">3</div>
+                <h3 data-i18n="flywheel.s3.title">干预 Intervene</h3>
+                <p data-i18n="flywheel.s3.desc">AI 电话主动外呼：提醒、建议、升级 —— 零设备门槛。</p>
+            </div>
+            <div class="fw-arrow">→</div>
+            <div class="flywheel-step">
+                <div class="fw-num">4</div>
+                <h3 data-i18n="flywheel.s4.title">学习 Learn</h3>
+                <p data-i18n="flywheel.s4.desc">每次干预结果回流模型，准确率持续提升，护城河持续加深。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 助行器 ========== -->
+    <section class="section section-alt" id="walker">
+        <div class="section-header">
+            <span class="section-num">04</span>
+            <h2 class="section-title" data-i18n="walker.title">产品 I · 智能助行器</h2>
+            <p class="section-desc" data-i18n="walker.desc">感知意图的助力、秒级坐站切换、全天候传感 —— Pro 版增加 SLAM 自主导航。</p>
+        </div>
+        <div class="walker-features">
+            <div class="feature-card glass">
+                <div class="feature-icon">⚡</div>
+                <h3 data-i18n="walker.f1.title">意图助力</h3>
+                <p data-i18n="walker.f1.desc">手柄压力传感器读取行走意图，驱动麦克纳姆轮 —— 走更远，更省力。</p>
+            </div>
+            <div class="feature-card glass">
+                <div class="feature-icon">🪑</div>
+                <h3 data-i18n="walker.f2.title">秒级坐站切换</h3>
+                <p data-i18n="walker.f2.desc">侧抽座椅 + 腿托外旋（专利申报中）—— 随时随地，即刻休息。</p>
+            </div>
+            <div class="feature-card glass">
+                <div class="feature-icon">🧭</div>
+                <h3 data-i18n="walker.f3.title">IMU 步态采集</h3>
+                <p data-i18n="walker.f3.desc">加速度 + 角速度实时捕获步态特征，为预测引擎提供核心数据源。</p>
+            </div>
+            <div class="feature-card glass">
+                <div class="feature-icon">❤️</div>
+                <h3 data-i18n="walker.f4.title">心率 + 翻倒报警</h3>
+                <p data-i18n="walker.f4.desc">运动心率监测，跌倒/翻倒即时告警，保障出行安全。</p>
+            </div>
+            <div class="feature-card glass">
+                <div class="feature-icon">🛰️</div>
+                <h3 data-i18n="walker.f5.title">北斗定位 + 一键呼叫</h3>
+                <p data-i18n="walker.f5.desc">实时位置追踪，紧急情况一键联系家属或急救。</p>
+            </div>
+            <div class="feature-card glass feature-pro">
+                <div class="feature-icon">🤖</div>
+                <h3 data-i18n="walker.f6.title">SLAM 自主导航（Pro）</h3>
+                <p data-i18n="walker.f6.desc">LiDAR + 双目视觉融合 SLAM，自主避障导航；全项体征监测套件。</p>
+            </div>
+        </div>
+        <div class="walker-tech">
+            <div class="tech-item">
+                <span class="tech-name">LiDAR</span>
+                <span class="tech-desc" data-i18n="walker.tech.lidar">ToF 测距，高精度点云，强环境适应</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-name">Stereo Camera</span>
+                <span class="tech-desc" data-i18n="walker.tech.camera">超宽视场角，低光环境增强</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-name">NearLink</span>
+                <span class="tech-desc" data-i18n="walker.tech.nearlink">低功耗、高速、低延迟通信</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-name">BeiDou</span>
+                <span class="tech-desc" data-i18n="walker.tech.beidou">精准定位，实时路径规划</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== AI 电话助手 ========== -->
+    <section class="section" id="phone">
+        <div class="section-header">
+            <span class="section-num">05</span>
+            <h2 class="section-title" data-i18n="phone.title">产品 II · AI 电话助手</h2>
+            <p class="section-desc" data-i18n="phone.desc">不依赖任何智能设备 —— 每个老人已经拥有、已经信任、已经会接听的，只有电话。</p>
+        </div>
+        <div class="phone-demo">
+            <div class="phone-call-card glass">
+                <div class="call-header">
+                    <span class="call-time">09:30</span>
+                    <span class="call-type" data-i18n="phone.callType">每日外呼</span>
+                </div>
+                <div class="call-dialog">
+                    <div class="dialog-line ai">
+                        <span class="dialog-speaker">AI</span>
+                        <p data-i18n="phone.d1">早上好，陈奶奶。今天血压药吃了吗？</p>
+                    </div>
+                    <div class="dialog-line user">
+                        <span class="dialog-speaker" data-i18n="phone.user">陈奶奶</span>
+                        <p data-i18n="phone.d2">吃了，早饭后吃的。</p>
+                    </div>
+                    <div class="dialog-line ai">
+                        <span class="dialog-speaker">AI</span>
+                        <p data-i18n="phone.d3">好的。助行器数据显示您这周步子短了些 —— 膝盖感觉怎么样？</p>
+                    </div>
+                    <div class="dialog-line user">
+                        <span class="dialog-speaker" data-i18n="phone.user">陈奶奶</span>
+                        <p data-i18n="phone.d4">有点僵，说实话。</p>
+                    </div>
+                    <div class="dialog-line ai">
+                        <span class="dialog-speaker">AI</span>
+                        <p data-i18n="phone.d5">记下了。我会通知您女儿，建议预约检查。今天慢点走，好吗？</p>
+                    </div>
+                </div>
+            </div>
+            <div class="phone-benefits">
+                <div class="benefit-item">
+                    <span class="benefit-num">01</span>
+                    <h3 data-i18n="phone.b1.title">零设备门槛</h3>
+                    <p data-i18n="phone.b1.desc">覆盖 80+ 高危群体 —— App、穿戴设备、陪伴机器人都触达不到的人。</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-num">02</span>
+                    <h3 data-i18n="phone.b2.title">结构化健康日志</h3>
+                    <p data-i18n="phone.b2.desc">服药、情绪、活动能力 —— 每通电话自动转化为干净数据。</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-num">03</span>
+                    <h3 data-i18n="phone.b3.title">安全级升级</h3>
+                    <p data-i18n="phone.b3.desc">助行器检测跌倒 → AI 数秒内致电 → 30 秒无应答 → 通知家属 → 紧急联系人。人工监督，绝非遗忘。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 传感器映射 ========== -->
+    <section class="section section-alt" id="sensors">
+        <div class="section-header">
+            <span class="section-num">06</span>
+            <h2 class="section-title" data-i18n="sensors.title">传感器 — 指标 — 风险映射</h2>
+            <p class="section-desc" data-i18n="sensors.desc">点击任意行，查看该传感器的可计算指标、风险等级与守护建议。</p>
+        </div>
+        <div class="sensor-filter-bar">
+            <button class="sensor-filter-btn active" data-risk="all" data-i18n="sensors.filterAll">全部</button>
+            <button class="sensor-filter-btn" data-risk="high" data-i18n="sensors.filterHigh">高风险</button>
+            <button class="sensor-filter-btn" data-risk="medium" data-i18n="sensors.filterMedium">中风险</button>
+            <button class="sensor-filter-btn" data-risk="low" data-i18n="sensors.filterLow">低风险</button>
+        </div>
+        <div class="sensor-table-wrap glass">
+            <table class="sensor-table" id="sensorTable">
+                <thead>
+                    <tr>
+                        <th data-i18n="sensors.col.sensor">传感器</th>
+                        <th data-i18n="sensors.col.raw">原始信息</th>
+                        <th data-i18n="sensors.col.index">可计算指标</th>
+                        <th data-i18n="sensors.col.risk">可能反映的问题</th>
+                        <th data-i18n="sensors.col.action">操作</th>
+                    </tr>
+                </thead>
+                <tbody id="sensorTableBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ========== 详情弹窗 ========== -->
+    <div class="detail-overlay" id="detailOverlay">
+        <div class="detail-modal glass" id="detailModal">
+            <button class="detail-close" id="detailClose" aria-label="Close">×</button>
+            <div class="detail-modal-header">
+                <span class="detail-modal-icon" id="detailModalIcon">📡</span>
+                <div>
+                    <h3 id="detailModalTitle">传感器名称</h3>
+                    <span class="detail-risk-badge" id="detailModalRisk">风险等级</span>
+                </div>
+            </div>
+            <div class="detail-modal-body">
+                <div class="detail-modal-item">
+                    <span class="detail-modal-label" data-i18n="sensors.detail.raw">原始信息</span>
+                    <p id="detailModalRaw">-</p>
+                </div>
+                <div class="detail-modal-item">
+                    <span class="detail-modal-label" data-i18n="sensors.detail.index">可计算指标</span>
+                    <div class="detail-tag-list" id="detailModalIndexes">-</div>
+                </div>
+                <div class="detail-modal-item">
+                    <span class="detail-modal-label" data-i18n="sensors.detail.problem">可能反映的问题</span>
+                    <p id="detailModalProblem">-</p>
+                </div>
+                <div class="detail-modal-item detail-alert" id="detailModalAlertBox">
+                    <span class="detail-modal-label" data-i18n="sensors.detail.advice">守护建议</span>
+                    <p id="detailModalAdvice">-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== 创新点 ========== -->
+    <section class="section" id="innovation">
+        <div class="section-header">
+            <span class="section-num">07</span>
+            <h2 class="section-title" data-i18n="innovation.title">创新 · 成熟部件，首创闭环</h2>
+        </div>
+        <div class="innovation-grid">
+            <div class="inno-card glass">
+                <span class="inno-num">01</span>
+                <h3 data-i18n="innovation.i1.title">场景闭环</h3>
+                <p data-i18n="innovation.i1.desc">业内首个将动力助行硬件与 AI 主动外呼服务接入同一预测引擎的方案。</p>
+            </div>
+            <div class="inno-card glass">
+                <span class="inno-num">02</span>
+                <h3 data-i18n="innovation.i2.title">零门槛交互</h3>
+                <p data-i18n="innovation.i2.desc">普通电话作为健康主入口 —— 数字照护终于纳入最高龄、最高风险的用户。</p>
+            </div>
+            <div class="inno-card glass">
+                <span class="inno-num">03</span>
+                <h3 data-i18n="innovation.i3.title">坐站切换结构</h3>
+                <p data-i18n="innovation.i3.desc">侧抽座椅 + 腿托外旋 —— 可防御的结构设计（实用新型与外观专利申报中）。</p>
+            </div>
+            <div class="inno-card glass">
+                <span class="inno-num">04</span>
+                <h3 data-i18n="innovation.i4.title">国产生态</h3>
+                <p data-i18n="innovation.i4.desc">星闪 + 北斗定位，嫁接华为生态与适老化补贴政策（星闪联盟 1,200+ 成员）。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 市场 ========== -->
+    <section class="section section-alt" id="market">
+        <div class="section-header">
+            <span class="section-num">08</span>
+            <h2 class="section-title" data-i18n="market.title">市场 · 银发科技增长最快的一层</h2>
+        </div>
+        <div class="market-stats">
+            <div class="market-card glass">
+                <span class="market-num">¥61.3B</span>
+                <span class="market-label" data-i18n="market.s1">中国康复辅助器具产业 (2024)</span>
+            </div>
+            <div class="market-card glass">
+                <span class="market-num">+10-12%</span>
+                <span class="market-label" data-i18n="market.s2">个人移动辅助器具年增长率</span>
+            </div>
+            <div class="market-card glass">
+                <span class="market-num">¥555B</span>
+                <span class="market-label" data-i18n="market.s3">适老化智能科技产品 (2025)</span>
+            </div>
+            <div class="market-card glass">
+                <span class="market-num">7.2%</span>
+                <span class="market-label" data-i18n="market.s4">全球步行辅具市场 CAGR</span>
+            </div>
+        </div>
+        <div class="market-policy glass">
+            <h3 data-i18n="market.policy.title">政策利好</h3>
+            <ul>
+                <li data-i18n="market.policy.c1">中国：辅具购置/租赁补贴、长护险试点、智慧健康养老行动计划</li>
+                <li data-i18n="market.policy.c2">英国：NHS 全国推广 AI 跌倒预测 (2025)；2027 年前约 200 万用户须换代</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ========== 商业模式 ========== -->
+    <section class="section" id="business">
+        <div class="section-header">
+            <span class="section-num">09</span>
+            <h2 class="section-title" data-i18n="business.title">商业模式 · 硬件落地，订阅增长</h2>
+        </div>
+        <div class="business-models">
+            <div class="biz-card glass">
+                <div class="biz-icon">🔩</div>
+                <h3 data-i18n="business.hard.title">硬件 — 楔子</h3>
+                <p data-i18n="business.hard.desc">助行器销售与租赁将传感器中枢送入家庭，启动数据飞轮。</p>
+                <div class="biz-price" data-i18n="business.hard.price">补贴后自付 ¥3,000–5,000</div>
+            </div>
+            <div class="biz-card glass">
+                <div class="biz-icon">🔄</div>
+                <h3 data-i18n="business.sub.title">订阅 — 引擎</h3>
+                <p data-i18n="business.sub.desc">AI 电话助手 + 家属端 App，将一次硬件销售转化为多年经常性收入。</p>
+                <div class="biz-price" data-i18n="business.sub.price">¥30–60/月 家庭计划</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 路线图 ========== -->
+    <section class="section section-alt" id="roadmap">
+        <div class="section-header">
+            <span class="section-num">10</span>
+            <h2 class="section-title" data-i18n="roadmap.title">路线图 · 三年，三个验证点</h2>
+        </div>
+        <div class="roadmap-timeline">
+            <div class="roadmap-phase">
+                <div class="phase-marker">P0</div>
+                <div class="phase-card glass">
+                    <span class="phase-time" data-i18n="roadmap.p0.time">0–6 个月</span>
+                    <h3 data-i18n="roadmap.p0.title">原型验证</h3>
+                    <ul>
+                        <li data-i18n="roadmap.p0.f1">助行器样机：助力 + 坐站切换 + 跌倒报警</li>
+                        <li data-i18n="roadmap.p0.f2">AI 电话助手 MVP 上线</li>
+                        <li data-i18n="roadmap.p0.f3">2–3 项结构专利申报</li>
+                        <li data-i18n="roadmap.p0.f4">户外地形实测，确定轮系方案</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="roadmap-phase">
+                <div class="phase-marker">P1</div>
+                <div class="phase-card glass">
+                    <span class="phase-time" data-i18n="roadmap.p1.time">6–18 个月</span>
+                    <h3 data-i18n="roadmap.p1.title">试点取证</h3>
+                    <ul>
+                        <li data-i18n="roadmap.p1.f1">二类医疗器械注册申报</li>
+                        <li data-i18n="roadmap.p1.f2">2 家养老院 + 50 户家庭试点</li>
+                        <li data-i18n="roadmap.p1.f3">产出预测准确率与住院下降真实数据</li>
+                        <li data-i18n="roadmap.p1.f4">进入 1–2 个城市补贴/租赁目录</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="roadmap-phase">
+                <div class="phase-marker">P2</div>
+                <div class="phase-card glass">
+                    <span class="phase-time" data-i18n="roadmap.p2.time">18–36 个月</span>
+                    <h3 data-i18n="roadmap.p2.title">规模复制</h3>
+                    <ul>
+                        <li data-i18n="roadmap.p2.f1">基础版量产上市</li>
+                        <li data-i18n="roadmap.p2.f2">订阅用户破万</li>
+                        <li data-i18n="roadmap.p2.f3">预测模型临床级验证</li>
+                        <li data-i18n="roadmap.p2.f4">拓展保险/药企支付方</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 互动演示 ========== -->
+    <section class="section" id="demo">
+        <div class="section-header">
+            <span class="section-num" style="color:var(--accent);">DEMO</span>
+            <h2 class="section-title" data-i18n="demo.title">互动演示 · 走通守护闭环</h2>
+            <p class="section-desc" data-i18n="demo.desc">选择一位老人，模拟从出行到关怀的完整守护流程。</p>
+        </div>
+
+        <!-- 步骤指示器 -->
+        <div class="demo-stepper" id="demoStepper">
+            <div class="step-ind active" data-step="1">
+                <span class="step-dot">1</span>
+                <span class="step-text" data-i18n="demo.step1">选择用户</span>
+            </div>
+            <div class="step-bar"></div>
+            <div class="step-ind" data-step="2">
+                <span class="step-dot">2</span>
+                <span class="step-text" data-i18n="demo.step2">助行器出行</span>
+            </div>
+            <div class="step-bar"></div>
+            <div class="step-ind" data-step="3">
+                <span class="step-dot">3</span>
+                <span class="step-text" data-i18n="demo.step3">AI电话关怀</span>
+            </div>
+            <div class="step-bar"></div>
+            <div class="step-ind" data-step="4">
+                <span class="step-dot">4</span>
+                <span class="step-text" data-i18n="demo.step4">风险评估</span>
+            </div>
+            <div class="step-bar"></div>
+            <div class="step-ind" data-step="5">
+                <span class="step-dot">5</span>
+                <span class="step-text" data-i18n="demo.step5">家属端</span>
+            </div>
+        </div>
+
+        <!-- Step 1: 选择用户 -->
+        <div class="demo-panel active" id="demoPanel1">
+            <div class="persona-grid">
+                <div class="persona-card glass" data-persona="chen">
+                    <div class="persona-avatar">👵</div>
+                    <h3 data-i18n="demo.chen.name">陈奶奶 · 78岁</h3>
+                    <p data-i18n="demo.chen.desc">轻度膝关节炎，独自居住，每日使用助行器散步。</p>
+                    <div class="persona-tags">
+                        <span class="ptag" data-i18n="demo.chen.tag1">独居</span>
+                        <span class="ptag" data-i18n="demo.chen.tag2">膝关节</span>
+                    </div>
+                </div>
+                <div class="persona-card glass" data-persona="wang">
+                    <div class="persona-avatar">👴</div>
+                    <h3 data-i18n="demo.wang.name">王爷爷 · 82岁</h3>
+                    <p data-i18n="demo.wang.desc">高血压史，偶有头晕，子女在外地工作。</p>
+                    <div class="persona-tags">
+                        <span class="ptag" data-i18n="demo.wang.tag1">高血压</span>
+                        <span class="ptag" data-i18n="demo.wang.tag2">异地子女</span>
+                    </div>
+                </div>
+                <div class="persona-card glass" data-persona="liu">
+                    <div class="persona-avatar">🧓</div>
+                    <h3 data-i18n="demo.liu.name">刘奶奶 · 85岁</h3>
+                    <p data-i18n="demo.liu.desc">轻度偏瘫康复期，使用助行器进行康复训练。</p>
+                    <div class="persona-tags">
+                        <span class="ptag" data-i18n="demo.liu.tag1">康复期</span>
+                        <span class="ptag" data-i18n="demo.liu.tag2">偏瘫</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: 助行器出行 -->
+        <div class="demo-panel" id="demoPanel2">
+            <div class="walker-cockpit">
+                <div class="cockpit-left">
+                    <div class="gauge-card glass">
+                        <span class="gauge-label" data-i18n="demo.gait">步态稳定性</span>
+                        <div class="gauge-ring" id="gaugeGait">
+                            <div class="gauge-inner"><span id="valGait">--</span><small>%</small></div>
+                        </div>
+                    </div>
+                    <div class="gauge-card glass">
+                        <span class="gauge-label" data-i18n="demo.speed">行走速度</span>
+                        <div class="gauge-ring" id="gaugeSpeed">
+                            <div class="gauge-inner"><span id="valSpeed">--</span><small>m/s</small></div>
+                        </div>
+                    </div>
+                    <div class="gauge-card glass">
+                        <span class="gauge-label" data-i18n="demo.heartrate">心率</span>
+                        <div class="gauge-ring" id="gaugeHR">
+                            <div class="gauge-inner"><span id="valHR">--</span><small>bpm</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cockpit-right">
+                    <div class="ctrl-panel glass">
+                        <h4 data-i18n="demo.control">助行器控制</h4>
+                        <div class="mode-toggle">
+                            <button class="mode-btn active" data-mode="walk" data-i18n="demo.modeWalk">行走模式</button>
+                            <button class="mode-btn" data-mode="sit" data-i18n="demo.modeSit">落座模式</button>
+                        </div>
+                        <button class="sos-btn" id="sosBtn" data-i18n="demo.emergency">一键呼叫</button>
+                    </div>
+                    <div class="log-panel glass">
+                        <h4 data-i18n="demo.log">实时事件</h4>
+                        <div class="log-stream" id="logStream"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-hint" id="walkHint" data-i18n="demo.walkHint">点击「开始出行」模拟助行器数据采集…</div>
+            <div class="demo-cta">
+                <button class="btn btn-primary" id="startWalkBtn" data-i18n="demo.startWalk">开始出行</button>
+            </div>
+        </div>
+
+        <!-- Step 3: AI电话 -->
+        <div class="demo-panel" id="demoPanel3">
+            <div class="call-stage">
+                <div class="call-phone glass">
+                    <div class="call-top">
+                        <span class="call-caller" id="callCaller">GuardianWing AI</span>
+                        <span class="call-timer" id="callTimer">00:00</span>
+                    </div>
+                    <div class="call-body" id="callBody"></div>
+                    <div class="call-options" id="callOptions"></div>
+                    <div class="call-cta" id="callCta"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: 风险评估 -->
+        <div class="demo-panel" id="demoPanel4">
+            <div class="risk-stage">
+                <div class="risk-score-card glass">
+                    <div class="risk-ring-big" id="riskRingBig">
+                        <div class="risk-ring-inner">
+                            <span id="riskScoreVal">--</span>
+                            <small>/ 100</small>
+                        </div>
+                    </div>
+                    <span class="risk-level-tag" id="riskLevelTag" data-i18n="demo.riskScore">跌倒风险评分</span>
+                </div>
+                <div class="risk-factors-card glass">
+                    <h4 data-i18n="demo.factors">风险因子分析</h4>
+                    <div class="factor-stream" id="factorStream"></div>
+                </div>
+                <div class="risk-advice-card glass">
+                    <h4 data-i18n="demo.intervention">推荐干预策略</h4>
+                    <div class="advice-stream" id="adviceStream"></div>
+                </div>
+            </div>
+            <div class="demo-cta">
+                <button class="btn btn-primary" id="toFamilyBtn" data-i18n="demo.toFamily">通知家属</button>
+            </div>
+        </div>
+
+        <!-- Step 5: 家属端 -->
+        <div class="demo-panel" id="demoPanel5">
+            <div class="family-stage">
+                <div class="family-phone glass">
+                    <div class="fp-header">
+                        <span data-i18n="demo.familyApp">家属端 App</span>
+                    </div>
+                    <div class="fp-report">
+                        <div class="fp-report-top">
+                            <span class="fp-date" id="fpDate"></span>
+                            <span class="fp-status" id="fpStatus"></span>
+                        </div>
+                        <div class="fp-metrics" id="fpMetrics"></div>
+                    </div>
+                    <div class="fp-alert" id="fpAlert">
+                        <span class="fp-alert-icon">⚠️</span>
+                        <div>
+                            <strong id="fpAlertTitle"></strong>
+                            <p id="fpAlertDesc"></p>
+                        </div>
+                    </div>
+                    <div class="fp-actions">
+                        <button class="fp-btn" id="fpVoiceBtn" data-i18n="demo.voiceCall">远程语音</button>
+                        <button class="fp-btn" id="fpLocBtn" data-i18n="demo.viewLocation">查看位置</button>
+                    </div>
+                    <div class="fp-map glass" id="fpMap">
+                        <div class="fp-map-pin">📍</div>
+                        <span data-i18n="demo.location">社区花园 · 安全区域</span>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-cta">
+                <button class="btn btn-outline" id="restartBtn" data-i18n="demo.restart">重新开始</button>
+            </div>
+            <div class="demo-done" id="demoDone">
+                <span class="done-check">✅</span>
+                <p data-i18n="demo.complete">守护闭环已走通！助行器感知 → AI 电话干预 → 引擎学习 → 家属通知。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Footer ========== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="logo.png" alt="GuardianWing" class="footer-logo">
+                <div>
+                    <h3>GuardianWing</h3>
+                    <p data-i18n="footer.tagline">So aging never means walking alone.</p>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <p data-i18n="footer.team">智翼守护项目组</p>
+                <p>guardianwing@example.com</p>
+                <p>July 2026</p>
+            </div>
+        </div>
+        <div class="footer-copy">© 2026 GuardianWing · Smart Walker × AI Care Platform</div>
+    </footer>
+
+    <!-- ========== 登录/注册弹窗 ========== -->
+    <div class="auth-overlay" id="authOverlay">
+        <div class="auth-modal glass">
+            <button class="auth-close" id="authClose" aria-label="Close">×</button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login" data-i18n="auth.login">登录</button>
+                <button class="auth-tab" data-tab="register" data-i18n="auth.register">注册</button>
+            </div>
+
+            <!-- 登录表单 -->
+            <form class="auth-form active" id="loginForm">
+                <div class="auth-field">
+                    <label data-i18n="auth.phone">手机号 / 账号</label>
+                    <input type="text" id="loginPhone" placeholder="请输入手机号" data-i18n-placeholder="auth.phonePh">
+                </div>
+                <div class="auth-field">
+                    <label data-i18n="auth.password">密码</label>
+                    <input type="password" id="loginPwd" placeholder="请输入密码" data-i18n-placeholder="auth.pwdPh">
+                </div>
+                <div class="auth-tip" id="loginTip"></div>
+                <button type="submit" class="btn btn-primary auth-submit" data-i18n="auth.loginBtn">登录</button>
+                <p class="auth-switch" data-i18n="auth.noAccount">还没有账号？<a href="#" id="toRegister">立即注册</a></p>
+            </form>
+
+            <!-- 注册表单 -->
+            <form class="auth-form" id="registerForm">
+                <div class="auth-field">
+                    <label data-i18n="auth.name">姓名</label>
+                    <input type="text" id="regName" placeholder="请输入您的姓名" data-i18n-placeholder="auth.namePh">
+                </div>
+                <div class="auth-field">
+                    <label data-i18n="auth.phone">手机号</label>
+                    <input type="text" id="regPhone" placeholder="请输入手机号" data-i18n-placeholder="auth.phonePh">
+                </div>
+                <div class="auth-field">
+                    <label data-i18n="auth.password">密码</label>
+                    <input type="password" id="regPwd" placeholder="至少 6 位" data-i18n-placeholder="auth.pwdPh">
+                </div>
+                <div class="auth-field">
+                    <label data-i18n="auth.role">身份</label>
+                    <div class="role-select">
+                        <label class="role-option">
+                            <input type="radio" name="regRole" value="elder" checked>
+                            <span data-i18n="auth.roleElder">长者 / 用户</span>
+                        </label>
+                        <label class="role-option">
+                            <input type="radio" name="regRole" value="family">
+                            <span data-i18n="auth.roleFamily">家属</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="auth-tip" id="regTip"></div>
+                <button type="submit" class="btn btn-primary auth-submit" data-i18n="auth.registerBtn">注册并登录</button>
+                <p class="auth-switch" data-i18n="auth.hasAccount">已有账号？<a href="#" id="toLogin">去登录</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js?v=20260723"></script>
+</body>
+</html>

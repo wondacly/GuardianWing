@@ -1,0 +1,33 @@
+# Apache HTTP Server 配置（适用于本 Demo 站点）
+# 确保已启用 mod_rewrite 模块
+
+Options -Indexes
+
+# 开启重写引擎
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 强制 HTTPS（如不需要可注释掉）
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+    # 移除 URL 末尾的斜杠
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # 默认入口文件
+    DirectoryIndex index.html
+</IfModule>
+
+# 缓存静态资源
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# 字符编码与 MIME 类型
+AddDefaultCharset UTF-8
+AddType text/css .css
+AddType application/javascript .js

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的体验中心 · GuardianWing</title>
+    <link rel="stylesheet" href="css/style.css?v=20260724">
+    <link rel="stylesheet" href="css/auth-dash.css?v=20260724">
+    <link rel="stylesheet" href="css/dashboard.css?v=20260724">
+</head>
+<body class="dashboard-body">
+    <!-- ========== 导航栏 ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="GuardianWing" class="nav-logo">
+                <span class="nav-title">GuardianWing</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#problem" data-i18n="nav.problem">痛点</a></li>
+                <li><a href="index.html#solution" data-i18n="nav.solution">方案</a></li>
+                <li><a href="index.html#walker" data-i18n="nav.walker">助行器</a></li>
+                <li><a href="index.html#phone" data-i18n="nav.phone">电话助手</a></li>
+                <li><a href="index.html#demo" data-i18n="nav.demo">互动演示</a></li>
+            </ul>
+            <div class="nav-user" id="navUser">
+                <button class="btn-login" id="btnLogin" data-i18n="nav.login">登录体验</button>
+                <div class="user-menu" id="userMenu" style="display:none;">
+                    <button class="user-avatar" id="userAvatarBtn">
+                        <span class="ua-initials" id="userInitials">U</span>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="ud-header">
+                            <span class="ud-name" id="udName">User</span>
+                            <span class="ud-role" id="udRole" data-i18n="user.roleElder">长者</span>
+                        </div>
+                        <ul class="ud-list">
+                            <li><a href="dashboard.html" class="active" id="udDashboard" data-i18n="user.dashboard">体验中心</a></li>
+                            <li><a href="index.html#demo" data-i18n="nav.demo">互动演示</a></li>
+                            <li class="ud-divider"></li>
+                            <li><a href="#" id="udLogout" data-i18n="user.logout">退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <button class="lang-toggle" id="langToggle">
+                <span class="lang-current" id="langCurrent">EN</span>
+            </button>
+            <button class="nav-menu-btn" id="navMenuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== 体验中心主体 ========== -->
+    <section class="dash-main" id="dashMain">
+
+        <!-- 未登录提示 -->
+        <div class="dash-login-hint glass" id="dashLoginHint">
+            <div class="dlh-icon">🔐</div>
+            <h3 data-i18n="dash.pleaseLogin">请先登录以体验完整功能</h3>
+            <p data-i18n="dash.loginDesc">登录后您可以查看助行器状态、AI 关怀记录、健康数据等。</p>
+            <button class="btn btn-primary" id="dashLoginBtn" data-i18n="auth.login">登录</button>
+        </div>
+
+        <!-- 已登录内容 -->
+        <div class="dash-content" id="dashContent" style="display:none;">
+            <!-- 顶部欢迎卡片 -->
+            <div class="dash-welcome glass">
+                <div class="dw-left">
+                    <div class="dw-avatar" id="dwAvatar">👵</div>
+                    <div class="dw-text">
+                        <h3><span id="dwGreeting" data-i18n="dash.goodDay">您好</span>，<span id="dwName">用户</span></h3>
+                        <p data-i18n="dash.welcomeDesc">今天的出行状态良好，AI 守护助手持续为您护航。</p>
+                    </div>
+                </div>
+                <div class="dw-right">
+                    <div class="dw-stat">
+                        <span class="dws-value" id="dwWalks">3</span>
+                        <span class="dws-label" data-i18n="dash.todayWalks">今日出行</span>
+                    </div>
+                    <div class="dw-stat">
+                        <span class="dws-value" id="dwSteps">2386</span>
+                        <span class="dws-label" data-i18n="dash.steps">步数</span>
+                    </div>
+                    <div class="dw-stat">
+                        <span class="dws-value" id="dwRisk">低</span>
+                        <span class="dws-label" data-i18n="dash.riskLevel">跌倒风险</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 侧边导航 + 内容区 -->
+            <div class="dash-layout">
+                <aside class="dash-sidebar glass">
+                    <ul class="dsb-menu">
+                        <li class="dsb-item active" data-page="overview">
+                            <span class="dsb-icon">🏠</span>
+                            <span class="dsb-text" data-i18n="dash.nav.overview">总览</span>
+                        </li>
+                        <li class="dsb-item" data-page="walker">
+                            <span class="dsb-icon">🦯</span>
+                            <span class="dsb-text" data-i18n="dash.nav.walker">助行器状态</span>
+                        </li>
+                        <li class="dsb-item" data-page="ai">
+                            <span class="dsb-icon">📞</span>
+                            <span class="dsb-text" data-i18n="dash.nav.ai">AI 关怀记录</span>
+                        </li>
+                        <li class="dsb-item" data-page="health">
+                            <span class="dsb-icon">❤️</span>
+                            <span class="dsb-text" data-i18n="dash.nav.health">健康数据</span>
+                        </li>
+                        <li class="dsb-item" data-page="alert">
+                            <span class="dsb-icon">⚠️</span>
+                            <span class="dsb-text" data-i18n="dash.nav.alert">预警中心</span>
+                        </li>
+                        <li class="dsb-item" data-page="family">
+                            <span class="dsb-icon">👨‍👩‍👧</span>
+                            <span class="dsb-text" data-i18n="dash.nav.family">家属端</span>
+                        </li>
+                        <li class="dsb-item" data-page="settings">
+                            <span class="dsb-icon">⚙️</span>
+                            <span class="dsb-text" data-i18n="dash.nav.settings">设置</span>
+                        </li>
+                    </ul>
+                </aside>
+
+                <main class="dash-pages">
+                    <!-- 总览页 -->
+                    <div class="dash-page active" data-page="overview">
+                        <h2 class="dp-title" data-i18n="dash.overview.title">功能入口</h2>
+                        <div class="dash-grid">
+                            <div class="dash-card glass" data-feat="walker">
+                                <div class="dc-icon">🦯</div>
+                                <h4 data-i18n="dash.feat1">助行器状态</h4>
+                                <p data-i18n="dash.feat1Desc">实时查看设备电量、连接状态与传感器数据</p>
+                                <span class="dc-arrow">→</span>
+                            </div>
+                            <div class="dash-card glass" data-feat="ai">
+                                <div class="dc-icon">📞</div>
+                                <h4 data-i18n="dash.feat2">AI 关怀记录</h4>
+                                <p data-i18n="dash.feat2Desc">查看每日 AI 电话关怀与健康随访记录</p>
+                                <span class="dc-arrow">→</span>
+                            </div>
+                            <div class="dash-card glass" data-feat="health">
+                                <div class="dc-icon">❤️</div>
+                                <h4 data-i18n="dash.feat3">健康数据</h4>
+                                <p data-i18n="dash.feat3Desc">步态、心率、血压趋势分析与周报</p>
+                                <span class="dc-arrow">→</span>
+                            </div>
+                            <div class="dash-card glass" data-feat="alert">
+                                <div class="dc-icon">⚠️</div>
+                                <h4 data-i18n="dash.feat4">预警中心</h4>
+                                <p data-i18n="dash.feat4Desc">跌倒预警、异常提醒与紧急联系人</p>
+                                <span class="dc-arrow">→</span>
+                            </div>
+                            <div class="dash-card glass" data-feat="family">
+                                <div class="dc-icon">👨‍👩‍👧</div>
+                                <h4 data-i18n="dash.feat5">家属端</h4>
+                                <p data-i18n="dash.feat5Desc">与家人共享位置、健康数据与紧急通知</p>
+                                <span class="dc-arrow">→</span>
+                            </div>
+                            <div class="dash-card glass" data-feat="settings">
+                                <div class="dc-icon">⚙️</div>
+                                <h4 data-i18n="dash.feat6">设置</h4>
+                                <p data-i18n="dash.feat6Desc">设备管理、个人信息、通知偏好</p>
+                                <span class="dc-arrow">→</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 助行器状态页 -->
+                    <div class="dash-page" data-page="walker">
+                        <h2 class="dp-title" data-i18n="dash.walker.title">助行器状态</h2>
+                        <div class="dp-content" id="pageWalker"></div>
+                    </div>
+
+                    <!-- AI关怀记录页 -->
+                    <div class="dash-page" data-page="ai">
+                        <h2 class="dp-title" data-i18n="dash.ai.title">AI 关怀记录</h2>
+                        <div class="dp-content" id="pageAi"></div>
+                    </div>
+
+                    <!-- 健康数据页 -->
+                    <div class="dash-page" data-page="health">
+                        <h2 class="dp-title" data-i18n="dash.health.title">健康数据</h2>
+                        <div class="dp-content" id="pageHealth"></div>
+                    </div>
+
+                    <!-- 预警中心页 -->
+                    <div class="dash-page" data-page="alert">
+                        <h2 class="dp-title" data-i18n="dash.alert.title">预警中心</h2>
+                        <div class="dp-content" id="pageAlert"></div>
+                    </div>
+
+                    <!-- 家属端页 -->
+                    <div class="dash-page" data-page="family">
+                        <h2 class="dp-title" data-i18n="dash.family.title">家属端</h2>
+                        <div class="dp-content" id="pageFamily"></div>
+                    </div>
+
+                    <!-- 设置页 -->
+                    <div class="dash-page" data-page="settings">
+                        <h2 class="dp-title" data-i18n="dash.settings.title">个人设置</h2>
+                        <div class="dp-content" id="pageSettings"></div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 登录/注册弹窗 ========== -->
+    <div class="auth-overlay" id="authOverlay">
+        <div class="auth-modal glass">
+            <button class="auth-close" id="authClose" aria-label="Close">×</button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login" data-i18n="auth.login">登录</button>
+                <button class="auth-tab" data-tab="register" data-i18n="auth.register">注册</button>
+            </div>
+            <form class="auth-form active" id="loginForm">
+                <div class="auth-field">
+                    <label data-i18n="auth.phone">手机号 / 账号</label>
+                    <input type="text" id="loginPhone" placeholder="请输入手机号" data-i18n-placeholder="auth.phonePh">
+                </div>
+                <div class="auth-field">
+                    <label data-i18n="auth.password">密码</label>
+                    <input type="password" id="loginPwd" placeholder="请输入密码" data-i18n-placeholder="auth.pwdPh">
+                </div>
+                <div class="auth-tip" id="loginTip"></div>
+                <button type="submit" class="btn btn-primary auth-submit" data-i18n="auth.loginBtn">登录</button>
+                <p class="auth-switch" data-i18n="auth.noAccount">还没有账号？<a href="#" id="toRegister">立即注册</a></p>
+            </form>
+            <form class="auth-form" id="registerForm">
+                <div class="auth-field">
+                    <label data-i18n="auth.name">姓名</label>
+                    <input type="text" id="regName" placeholder="请输入您的姓名" data-i18n-placeholder="auth.namePh">
+                </div>
+                <div class="auth-field">
+                    <label data-i18n="auth.phone">手机号</label>
+                    <input type="text" id="regPhone" placeholder="请输入手机号" data-i18n-placeholder="auth.phonePh">
+                </div>
+                <div class="auth-field">
+                    <label data-i18n="auth.password">密码</label>
+                    <input type="password" id="regPwd" placeholder="至少 6 位" data-i18n-placeholder="auth.pwdPh">
+                </div>
+                <div class="auth-field">
+                    <label data-i18n="auth.role">身份</label>
+                    <div class="role-select">
+                        <label class="role-option">
+                            <input type="radio" name="regRole" value="elder" checked>
+                            <span data-i18n="auth.roleElder">长者 / 用户</span>
+                        </label>
+                        <label class="role-option">
+                            <input type="radio" name="regRole" value="family">
+                            <span data-i18n="auth.roleFamily">家属</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="auth-tip" id="regTip"></div>
+                <button type="submit" class="btn btn-primary auth-submit" data-i18n="auth.registerBtn">注册并登录</button>
+                <p class="auth-switch" data-i18n="auth.hasAccount">已有账号？<a href="#" id="toLogin">去登录</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js?v=20260724"></script>
+    <script src="js/dashboard.js?v=20260724"></script>
+</body>
+</html>

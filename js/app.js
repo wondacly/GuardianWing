@@ -1864,4 +1864,4 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* ========== 初始化 ========== */
-applyLanguage("zh");
+applyLanguage(currentLang);

@@ -770,7 +770,7 @@ const riskMap = {
 };
 
 /* ========== 状态管理 ========== */
-let currentLang = "zh";
+let currentLang = "en";
 
 /* ========== 语言切换 ========== */
 function applyLanguage(lang) {

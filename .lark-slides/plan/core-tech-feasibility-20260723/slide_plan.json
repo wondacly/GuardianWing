@@ -1,0 +1,64 @@
+{
+  "presentation_goal": "Showcase GuardianWing's core technology stack and engineering feasibility for project review and submission.",
+  "audience": "Project judges, academic reviewers, and technical stakeholders evaluating the GuardianWing smart walker system.",
+  "theme_style": "Clean technical blue theme, light background with teal-to-blue gradient accents, professional and academic feel.",
+  "visual_system": {
+    "background_strategy": "Light off-white background (#f8fafc) with subtle grid texture. Header and bottom bar use teal-to-blue gradients. Consistent with GuardianWing's brand colors.",
+    "motif": "Three-column table layout (Technology | Principle | Outcomes) with rounded card rows. Each row uses a colored left accent bar. Circular icon backgrounds for technology items.",
+    "color_roles": {
+      "primary": "Teal (#0d9488) - used for Technology column header and accents",
+      "secondary": "Blue (#3b82f6) - used for Principle and Outcomes headers",
+      "accent": "Dark blue (#1e3a5f) - used for title and conclusion bar"
+    }
+  },
+  "typography_constraints": {
+    "title_max_lines": 2,
+    "body_max_lines_per_box": 4,
+    "footer_max_lines": 2,
+    "long_text_handling": "Split technology descriptions into short bullets. Keep metric values as bold numbers with short labels."
+  },
+  "verification_plan": {
+    "check_background_consistency": true,
+    "check_text_fit": true,
+    "check_visual_focus": true,
+    "check_asset_rendering": true
+  },
+  "slides": [
+    {
+      "page": 1,
+      "title": "Core Technologies & Feasibility",
+      "key_message": "GuardianWing's 5-core technology stack demonstrates technical feasibility and engineering readiness for real-world deployment.",
+      "layout_type": "architecture-diagram",
+      "visual_focus": "Three-column table with 5 technology rows, each combining icon, description, principle visualization, and outcome metrics. The middle principle column uses whiteboard diagrams (line chart, face icons, satellite positioning, dashboard, flow diagram).",
+      "asset_need": [
+        {
+          "asset_type": "chart",
+          "purpose": "Show multi-sensor fusion data comparison in Principle column row 1",
+          "fallback_if_missing": "Use whiteboard SVG line chart with 4 colored series (IMU, Force, Encoder, Fusion) and axis labels"
+        },
+        {
+          "asset_type": "icon",
+          "purpose": "Face-state recognition emotion icons in Principle column row 2",
+          "fallback_if_missing": "Use 4 circular face icons (Neutral, Smile, Fatigue, Distress) drawn as whiteboard SVG"
+        },
+        {
+          "asset_type": "architecture_diagram",
+          "purpose": "BeiDou + SparkLink positioning diagram in Principle column row 3",
+          "fallback_if_missing": "Whiteboard SVG showing satellite icons, walker device, location pin with dashed connection lines"
+        },
+        {
+          "asset_type": "infographic",
+          "purpose": "Dashboard data visualization mockup in Principle column row 4",
+          "fallback_if_missing": "Whiteboard SVG with 3 metric cards (Gait Score, Heart Rate, Alert) and small line charts"
+        },
+        {
+          "asset_type": "flow_diagram",
+          "purpose": "Dual-channel monitoring flow in Principle column row 5",
+          "fallback_if_missing": "Whiteboard Mermaid flowchart showing Hardware Monitoring -> Decision Fusion -> AI Monitoring with Alert escalation path"
+        }
+      ],
+      "text_density": "high",
+      "speaker_intent": "Demonstrate technical depth across all five modules while proving each has measurable outcomes and real-world validation."
+    }
+  ]
+}

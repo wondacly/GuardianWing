@@ -121,6 +121,9 @@ GuardianWing/
 - [ ] 多用户健康数据云同步
 - [ ] 跌倒检测模型边缘端部署
 
+## 联系我们
+chenliuying666@163.com
+
 ## License
 
 MIT License
